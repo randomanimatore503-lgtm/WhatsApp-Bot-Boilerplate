@@ -1,12 +1,16 @@
 const { Resend } = require("resend");
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+let resend;
+function getResend() {
+  if (!resend) resend = new Resend(process.env.RESEND_API_KEY);
+  return resend;
+}
 
 async function sendEmail({ sender, message, name, room_type }) {
   const to = process.env.NOTIFICATION_EMAIL; // your email to receive leads
 
   try {
-    const { data, error } = await resend.emails.send({
+    const { data, error } = await getResend().emails.send({
       from: process.env.RESEND_FROM_EMAIL, // e.g. "INYC Bot <noreply@yourdomain.com>"
       to,
       subject: `New Inquiry from ${name || sender}`,
