@@ -30,3 +30,11 @@ NODE_ENV = "production"
 
 [services.production.health.startup]
 path = "/api/healthz"
+
+[[services]]
+localPort = 3000
+name = "WhatsApp Bot"
+paths = ["/webhook", "/"]
+
+[services.development]
+run = "node index.js"
