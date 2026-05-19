@@ -3,22 +3,22 @@ const { sendWhatsApp } = require("../services/whatsapp");
 const { extractDetails } = require("../services/groq");
 const { sendEmail } = require("../services/email");
 
-const WELCOME_MESSAGE = `Welcome to Ipcowala Naturopathy & Yoga Centre ðŸŒ¿
+const WELCOME_MESSAGE = `Welcome to Ipcowala Naturopathy & Yoga Centre 🌿
 
 Rooms & Prices:
-Ananda (single): â‚¹3800/day
-Ananda (sharing): â‚¹3400/day
+Ananda (single): ₹3800/day
+Ananda (sharing): ₹3400/day
 
-Sattva (single): â‚¹2400/day
+Sattva (single): ₹2400/day
 
-Swastha (AC-single): â‚¹2300/day  
-Swastha (AC-sharing): â‚¹2000/day  
-Swastha (non-AC-single): â‚¹1900/day
-Swastha (non-AC-sharing): â‚¹1600/day
+Swastha (AC-single): ₹2300/day  
+Swastha (AC-sharing): ₹2000/day  
+Swastha (non-AC-single): ₹1900/day
+Swastha (non-AC-sharing): ₹1600/day
 
-Arogya: â‚¹1300/day
+Arogya: ₹1300/day
 
-*Registration + consultation charges â‚¹1100*
+*Registration + consultation charges ₹1100*
 
 Includes stay, food, yoga & treatments.
 
