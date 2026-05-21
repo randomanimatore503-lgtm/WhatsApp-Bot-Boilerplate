@@ -1,7 +1,7 @@
 const { getUser, setUser } = require("../services/firebase");
 const { sendWhatsApp } = require("../services/whatsapp");
 const { extractDetails } = require("../services/groq");
-const { sendEmail } = require("../services/email");
+const { sendContactEmail, sendEmail } = require("../services/email");
 
 const WELCOME_MESSAGE = `Welcome to Ipcowala Naturopathy & Yoga Centre 🌿
 
@@ -47,9 +47,9 @@ async function handleIncoming(sender, message) {
   const step = userData?.step || 0;
 
   if (step === 0) {
-    // First contact â€” send welcome message
     await sendWhatsApp(sender, WELCOME_MESSAGE);
     await setUser(sender, { step: 1 });
+    await sendContactEmail({ sender });
   } else if (step === 1) {
     // Second message â€” they replied with their details
     // Extract info with Groq
