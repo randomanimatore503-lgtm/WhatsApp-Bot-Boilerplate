@@ -9,7 +9,9 @@ app.use("/webhook", webhookRouter);
 
 app.get("/", (req, res) => res.send("INYC WhatsApp Bot is running 🌿"));
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+if (require.main === module) {
+  const PORT = process.env.PORT || 3000;
+  app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+}
 
 module.exports = app;
